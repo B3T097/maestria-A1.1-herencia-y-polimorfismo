@@ -1,8 +1,6 @@
 package heroesgame.classes.villanos;
 
-import heroesgame.classes.Personaje;
-
-public class MonstruoFuego extends Personaje {
+public class MonstruoFuego extends Villano {
 
     public MonstruoFuego( String nombre, String color ){
         this.setNombre(nombre);

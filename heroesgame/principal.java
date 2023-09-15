@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 
+import heroesgame.classes.Equipo;
 import heroesgame.classes.Personaje;
 import heroesgame.classes.heroes.Arquero;
 import heroesgame.classes.heroes.Espadachin;
@@ -19,8 +20,9 @@ import heroesgame.classes.villanos.MonstruoTierra;
  */
 public class principal {
     public static void main(String[] args) {
-        ArrayList<Personaje> equipo = new ArrayList<>();
-        String mensaje = "1.- Mago\n" + //
+        //#region PRIMERA ACTIVIDAD
+        // ArrayList<Personaje> equipo = new ArrayList<>();
+        String mensaje_personajes = "1.- Mago\n" + //
                 "2.-Espadachin\n" + //
                 "3.- Arquero\n" + //
                 "4.- Monstruo de Aire\n" + //
@@ -28,29 +30,53 @@ public class principal {
                 "6.- Monstruo de Tierra\n" + //
                 "7.- Monstruo de Agua";
 
-        Integer seleccion_1 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Seleccione un personaje", 3));  
-        String nombre_1 = JOptionPane.showInputDialog(null, "Ingrese el nombre de su personaje", "Nombre", 3);  
-        String color_1 = JOptionPane.showInputDialog(null, "Ingrese el color de su personaje", "Color", 3);  
-        Integer seleccion_2 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Seleccione un personaje", 3));  
-        String nombre_2 = JOptionPane.showInputDialog(null, "Ingrese el nombre de su personaje", "Nombre", 3);  
-        String color_2 = JOptionPane.showInputDialog(null, "Ingrese el color de su personaje", "Color", 3);  
-        Integer seleccion_3 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Seleccione un personaje", 3));  
-        String nombre_3 = JOptionPane.showInputDialog(null, "Ingrese el nombre de su personaje", "Nombre", 3);  
-        String color_3 = JOptionPane.showInputDialog(null, "Ingrese el color de su personaje", "Color", 3);  
+        // Integer seleccion_1 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje_personajes, "Seleccione un personaje", 3));  
+        // String nombre_1 = JOptionPane.showInputDialog(null, "Ingrese el nombre de su personaje", "Nombre", 3);  
+        // String color_1 = JOptionPane.showInputDialog(null, "Ingrese el color de su personaje", "Color", 3);  
+        // Integer seleccion_2 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje_personajes, "Seleccione un personaje", 3));  
+        // String nombre_2 = JOptionPane.showInputDialog(null, "Ingrese el nombre de su personaje", "Nombre", 3);  
+        // String color_2 = JOptionPane.showInputDialog(null, "Ingrese el color de su personaje", "Color", 3);  
+        // Integer seleccion_3 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje_personajes, "Seleccione un personaje", 3));  
+        // String nombre_3 = JOptionPane.showInputDialog(null, "Ingrese el nombre de su personaje", "Nombre", 3);  
+        // String color_3 = JOptionPane.showInputDialog(null, "Ingrese el color de su personaje", "Color", 3);  
 
-        equipo.add(seleccionPersonaje(seleccion_1, nombre_1, color_1));
-        equipo.add(seleccionPersonaje(seleccion_2, nombre_2, color_2));
-        equipo.add(seleccionPersonaje(seleccion_3, nombre_3, color_3));
+        // equipo.add(seleccionPersonaje(seleccion_1, nombre_1, color_1));
+        // equipo.add(seleccionPersonaje(seleccion_2, nombre_2, color_2));
+        // equipo.add(seleccionPersonaje(seleccion_3, nombre_3, color_3));
 
-        Iterator<Personaje> equipoIterator = equipo.iterator();
-        while (equipoIterator.hasNext()) {
-        	Personaje peronaje = equipoIterator.next();
-            // System.out.println(peronaje.getClass().getSimpleName() + " : " + peronaje + " : ");
-            // peronaje.atacar();
-            System.out.println(peronaje.toString());
-            peronaje.atacar();
-            peronaje.defender();
+        // Iterator<Personaje> equipoIterator = equipo.iterator();
+        // while (equipoIterator.hasNext()) {
+        // 	Personaje peronaje = equipoIterator.next();
+        //     // System.out.println(peronaje.getClass().getSimpleName() + " : " + peronaje + " : ");
+        //     // peronaje.atacar();
+        //     System.out.println(peronaje.toString());
+        //     peronaje.atacar();
+        //     peronaje.defender();
+        // }
+        //#endregion
+
+        //#region SEGUNDA ACTIVIDAD CALSE CONTENEDORA
+        Equipo equipo = new Equipo();
+        int activo = 1;
+
+        while (activo == 1) {
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Seleccionar una accion\n 1.- Agregar personaje\n 2.- Eliminar ultimo\n 3.- Monstrar\n 5.- Salir", "App Heroes"));
+            switch (opcion) {
+                case 1:
+                    Integer seleccion = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje_personajes, "Seleccione un personaje", 3));  
+                    String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre de su personaje", "Nombre", 3);  
+                    String color = JOptionPane.showInputDialog(null, "Ingrese el color de su personaje", "Color", 3);  
+                    equipo.agregar(seleccionPersonaje(seleccion, nombre, color));
+                    break;
+                case 2:
+                
+                break;
+                default:
+                    break;
+            }
         }
+
+        //#endregion
     }
 
     private static Personaje seleccionPersonaje(Integer tipo, String nombre, String color){

@@ -1,8 +1,6 @@
 package heroesgame.classes.heroes;
 
-import heroesgame.classes.Personaje;
-
-public class Espadachin extends Personaje {
+public class Espadachin extends Heroe {
 
     public Espadachin( String nombre, String color ){
         this.setNombre(nombre);

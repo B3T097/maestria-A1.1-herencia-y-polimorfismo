@@ -1,8 +1,6 @@
 package heroesgame.classes.heroes;
 
-import heroesgame.classes.Personaje;
-
-public class Arquero extends Personaje {
+public class Arquero extends Heroe {
 
     public Arquero( String nombre, String color ){
         this.setNombre(nombre);
