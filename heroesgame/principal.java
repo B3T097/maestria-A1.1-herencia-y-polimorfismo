@@ -60,7 +60,7 @@ public class principal {
         int activo = 1;
 
         while (activo == 1) {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Seleccionar una accion\n 1.- Agregar personaje\n 2.- Eliminar ultimo\n 3.- Monstrar\n 5.- Salir", "App Heroes"));
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Seleccionar una accion\n 1.- Agregar personaje\n 2.- Eliminar ultimo\n 3.- Monstrar\n 4.- Salir"));
             switch (opcion) {
                 case 1:
                     Integer seleccion = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje_personajes, "Seleccione un personaje", 3));  
@@ -69,9 +69,17 @@ public class principal {
                     equipo.agregar(seleccionPersonaje(seleccion, nombre, color));
                     break;
                 case 2:
-                
-                break;
+                    String tipo = equipo.eliminar();
+                    JOptionPane.showMessageDialog(null, tipo + " Eliminado", "Eliminado", 1);
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, equipo.mostrar());
+                    break;
+                case 4:
+                    activo = 0;
+                    break;
                 default:
+                    activo = 0;
                     break;
             }
         }
