@@ -3,22 +3,23 @@ package heroesgame.classes;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Equipo {
-    private ArrayList<Personaje> equipo;
+public class Equipo<T> {
+    private ArrayList<T> equipo;
     public Equipo(){
         this.equipo = new ArrayList<>();
     }
 
-    public ArrayList<Personaje> getEquipo() {
+    public ArrayList<T> getEquipo() {
         return equipo;
     }
 
-    public void agregar(Personaje personaje) {
+    public void agregar(T personaje) {
         this.equipo.add(personaje);
     }
 
     public String eliminar(){
-        String tipo = this.equipo.get(this.equipo.size() - 1).getNombre();
+        // String tipo = this.equipo.get(this.equipo.size() - 1).getNombre();
+        String tipo = "Personaje eliminado";
         this.equipo.remove(this.equipo.size() - 1);
         return tipo;
     }
@@ -26,9 +27,9 @@ public class Equipo {
     public String mostrar() {
         String lista = "";
         try {
-            Iterator<Personaje> equipoIterator = equipo.iterator();
+            Iterator<T> equipoIterator = equipo.iterator();
             while (equipoIterator.hasNext()) {
-                Personaje personaje = equipoIterator.next();
+                T personaje = equipoIterator.next();
                 System.out.println(personaje.toString());
                 lista += personaje.toString() + "\n";
             }

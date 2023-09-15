@@ -1,7 +1,7 @@
 package heroesgame;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+// import java.util.ArrayList;
+// import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 
@@ -56,7 +56,7 @@ public class principal {
         //#endregion
 
         //#region SEGUNDA ACTIVIDAD CALSE CONTENEDORA
-        Equipo equipo = new Equipo();
+        Equipo<Personaje> equipo = new Equipo<Personaje>();
         int activo = 1;
 
         while (activo == 1) {
